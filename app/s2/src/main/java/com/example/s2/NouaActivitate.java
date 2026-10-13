@@ -1,6 +1,8 @@
 package com.example.s2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,17 @@ public class NouaActivitate extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+    }
+
+    public void openActivity (View view) {
+        Intent it = new Intent(this, ActivitateRezultata.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("mesaj", "Mesaj 1");
+        bundle.putInt("numar 1", 5);
+        bundle.putInt("numar 2", 7);
+
+        it.putExtras(bundle);
+        startActivity(it);
     }
 }

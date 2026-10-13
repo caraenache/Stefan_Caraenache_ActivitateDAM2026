@@ -1,7 +1,9 @@
 package com.example.s2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,33 +25,35 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i("TAG", "INFO");
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("TAG", "DEBUG");
-    }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.w("TAG", "WARNING");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.e("TAG", "ERROR");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.v("TAG", "VERBOSE");
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        Log.i("TAG", "INFO");
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Log.d("TAG", "DEBUG");
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        Log.w("TAG", "WARNING");
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        Log.e("TAG", "ERROR");
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        Log.v("TAG", "VERBOSE");
+//    }
 }
