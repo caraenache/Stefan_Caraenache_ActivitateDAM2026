@@ -12,6 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ActivitateRezultata extends AppCompatActivity {
+    private int nr1;
+    private int nr2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +29,20 @@ public class ActivitateRezultata extends AppCompatActivity {
         Intent it=getIntent();
         Bundle bundle = it.getExtras();
         String mesaj = bundle.getString("mesaj", "");
-        int nr1 = bundle.getInt("nr1", 0);
-        int nr2 = bundle.getInt("nr2", 0);
+        nr1 = bundle.getInt("nr1", 0);
+        nr2 = bundle.getInt("nr2", 0);
 
         Toast.makeText(this, mesaj, Toast.LENGTH_SHORT).show();
 
     }
 
-//    public void openActivity(View view) {
-//        Intent it = new Intent(this, ActivitateRezultata.class);
-//        startActivity(it);
-//    }
+    public void intorcereInActivitate(View view) {
+        int suma = this.nr1+this.nr2;
+        String mesajNou = "Noul Mesaj";
+        Intent it = new Intent();
+        it.putExtra("mesaj", mesajNou);
+        it.putExtra("suma", suma);
+        setResult(RESULT_OK, it);
+        finish();
+    }
 }

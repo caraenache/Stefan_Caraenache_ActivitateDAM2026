@@ -3,8 +3,10 @@ package com.example.s2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -29,10 +31,23 @@ public class NouaActivitate extends AppCompatActivity {
         Intent it = new Intent(this, ActivitateRezultata.class);
         Bundle bundle = new Bundle();
         bundle.putString("mesaj", "Mesaj 1");
-        bundle.putInt("numar 1", 5);
-        bundle.putInt("numar 2", 7);
+        bundle.putInt("nr1", 5);
+        bundle.putInt("nr2", 7);
 
         it.putExtras(bundle);
-        startActivity(it);
+
+        startActivityForResult(it, 83);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==83) {
+            if (resultCode == RESULT_OK) {
+                String mesajIntors = data.getStringExtra("mesaj");
+                int suma = data.getIntExtra("suma",0);
+                Toast.makeText(this, mesajIntors + " " + suma, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
