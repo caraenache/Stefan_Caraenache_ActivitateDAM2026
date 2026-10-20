@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="etaj">
+        <item>Parter</item>
+        <item>Etaj 1</item>
+        <item>Etaj 2</item>
+        <item>Etaj 3</item>
+        <item>Etaj 4</item>
+    </string-array>
+</resources>
