@@ -14,6 +14,12 @@
         android:layout_height="wrap_content"
         android:text="@string/adauga_clasa" />
 
+    <Button
+        android:id="@+id/btnLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vezi lista" />
+
     <TextView
         android:id="@+id/tvClasa"
         android:layout_width="match_parent"
