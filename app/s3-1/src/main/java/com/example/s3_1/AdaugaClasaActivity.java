@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +15,7 @@ public class AdaugaClasaActivity extends AppCompatActivity {
     private CheckBox cbAreProiector;
     private Spinner spEtaj;
     private Button btnSalveaza;
+    private ClasaDeElevi clasaDeEditat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +27,30 @@ public class AdaugaClasaActivity extends AppCompatActivity {
         spEtaj = findViewById(R.id.spEtaj);
         btnSalveaza = findViewById(R.id.btnSalveaza);
 
+        clasaDeEditat = getIntent().getParcelableExtra("clasa");
+
+        if (clasaDeEditat != null) {
+            etNrBanci.setText(String.valueOf(clasaDeEditat.getNrBanci()));
+            cbAreProiector.setChecked(clasaDeEditat.isAreProiector());
+            spEtaj.setSelection(clasaDeEditat.getEtaj());
+        }
+
         btnSalveaza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = etNrBanci.getText().toString().trim();
-                if (text.isEmpty()) {
-                    Toast.makeText(AdaugaClasaActivity.this, "Completează numărul de bănci!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                int nrBanci = Integer.parseInt(text);
+                int nrBanci = Integer.parseInt(etNrBanci.getText().toString());
                 boolean areProiector = cbAreProiector.isChecked();
                 int etaj = spEtaj.getSelectedItemPosition();
 
-                ClasaDeElevi clasa = new ClasaDeElevi(nrBanci, areProiector, etaj);
+                ClasaDeElevi clasa;
+                if (clasaDeEditat == null) {
+                    clasa = new ClasaDeElevi(nrBanci, areProiector, etaj);
+                } else {
+                    clasa = clasaDeEditat;
+                    clasa.setNrBanci(nrBanci);
+                    clasa.setAreProiector(areProiector);
+                    clasa.setEtaj(etaj);
+                }
 
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
