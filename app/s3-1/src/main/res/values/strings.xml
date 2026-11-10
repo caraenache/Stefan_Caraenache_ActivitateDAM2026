@@ -3,5 +3,7 @@
     <string name="adauga_clasa">Adauga clasa</string>
     <string name="numar_banci">Numar banci</string>
     <string name="are_proiector">Are proiector</string>
+    <string name="imagini">Imagini</string>
+    <string name="btnImagini">Imagini</string>
 
 </resources>
